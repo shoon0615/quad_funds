@@ -1,0 +1,5 @@
+api-url: http://localhost:8091
+
+resource:
+  page: 5
+  test: http://localhost:8090/api/v1/test

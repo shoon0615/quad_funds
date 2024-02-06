@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.side_project.quad_funds_bo_all.mapper.TestMapper">
+
+    <sql id="selectTestTable">
+        SELECT  pm_id
+                , pm_approval_yn
+                , pm_category
+                , pm_end_date
+                , pm_main_image
+                , pm_name
+                , pm_rate_plan
+                , pm_refund_possible_yn
+                , pm_reservation_possible_yn
+                , pm_start_date
+                , pm_target_amount
+                , pm_target_complete_yn
+                , pm_target_date
+                , pm_target_type
+                , delete_yn
+                , created_date
+                , modified_date
+        FROM    test_project_master
+        WHERE   1=1
+        <!-- 프로젝트명 -->
+        <if test='pmName != null and !"".equals(pmName)'>
+            AND UPPER(pm_name) LIKE '%' || #{pmName} || '%'
+        </if>
+    </sql>
+
+    <sql id="selectTestWhere">
+        <where>
+            <!-- 프로젝트명 -->
+            <if test='pmName != null and !"".equals(pmName)'>
+                AND UPPER(pm_name) LIKE '%' || #{pmName} || '%'
+            </if>
+        </where>
+    </sql>
+
+    <select id="selectTest" parameterType="string" resultType="hashmap">
+        /* TestMapper.selectTest */
+        <include refid="selectTestTable" />
+        AND pm_id = #{pmId}
+    </select>
+
+    <select id="selectAllTest" parameterType="hashmap" resultType="hashmap">
+        /* TestMapper.selectAllTest */
+        <include refid="selectTestTable" />
+    </select>
+
+    <insert id="insertTest" parameterType="hashmap">
+        /* TestMapper.insertTest */
+        INSERT
+        INTO test_project_master (
+            pm_approval_yn
+            , pm_category
+            , pm_end_date
+            , pm_main_image
+            , pm_name
+            , pm_rate_plan
+            , pm_refund_possible_yn
+            , pm_reservation_possible_yn
+            , pm_start_date
+            , pm_target_amount
+            , pm_target_complete_yn
+            , pm_target_date
+            , pm_target_type
+        ) VALUES (
+            #{pmApprovalYn}
+            , #{pmCategory}
+            , #{pmEndDate}
+            , #{pmMainImage}
+            , #{pmName}
+            , #{pmRatePlan}
+            , #{pmRefundPossibleYn}
+            , #{pmReservationPossibleYn}
+            , #{pmStartDate}
+            , #{pmTargetAmount}
+            , #{pmTargetCompleteYn}
+            , #{pmTargetDate}
+            , #{pmTargetType}
+        )
+    </insert>
+
+    <update id="updateTest" parameterType="hashmap">
+        /* TestMapper.updateTest */
+        UPDATE  test_project_master
+        SET     modified_date = SYSDATE
+            <if test='pmApprovalYn != null and !"".equals(pmApprovalYn)'>
+                , pm_approval_yn = #{pmApprovalYn}
+            </if>
+            <if test='pmCategory != null and !"".equals(pmCategory)'>
+                , pm_category = #{pmCategory}
+            </if>
+            <if test='pmEndDate != null and !"".equals(pmEndDate)'>
+                , pm_end_date = #{pmEndDate}
+            </if>
+            <if test='pmMainImage != null and !"".equals(pmMainImage)'>
+                , pm_main_image = #{pmMainImage}
+            </if>
+            <if test='pmName != null and !"".equals(pmName)'>
+                , pm_name = #{pmName}
+            </if>
+            <if test='pmRatePlan != null and !"".equals(pmRatePlan)'>
+                , pm_rate_plan = #{pmRatePlan}
+            </if>
+            <if test='pmRefundPossibleYn != null and !"".equals(pmRefundPossibleYn)'>
+                , pm_refund_possible_yn = #{pmRefundPossibleYn}
+            </if>
+            <if test='pmReservationPossibleYn != null and !"".equals(pmReservationPossibleYn)'>
+                , pm_reservation_possible_yn = #{pmReservationPossibleYn}
+            </if>
+            <if test='pmStartDate != null and !"".equals(pmStartDate)'>
+                , pm_start_date = #{pmStartDate}
+            </if>
+            <if test='pmTargetAmount != null and !"".equals(pmTargetAmount)'>
+                , pm_target_amount = #{pmTargetAmount}
+            </if>
+            <if test='pmTargetCompleteYn != null and !"".equals(pmTargetCompleteYn)'>
+                , pm_target_complete_yn = #{pmTargetCompleteYn}
+            </if>
+            <if test='pmTargetDate != null and !"".equals(pmTargetDate)'>
+                , pm_target_date = #{pmStartDate}
+            </if>
+            <if test='pmTargetType != null and !"".equals(pmTargetType)'>
+                , pm_target_type = #{pmTargetType}
+            </if>
+        WHERE   pm_id = #{pmId}
+    </update>
+
+    <!-- if 사용 시 sqi <-> include 태그로 전환할지 확인 -->
+    <update id="saveTest" parameterType="hashmap">
+        /* TestMapper.saveTest */
+        MERGE
+        INTO    test_project_master
+        USING   DUAL
+            ON  (pm_id = #{pmId})
+        WHEN MATCHED THEN UPDATE
+        SET     modified_date = SYSDATE
+            <if test='pmApprovalYn != null and !"".equals(pmApprovalYn)'>
+                , pm_approval_yn = #{pmApprovalYn}
+            </if>
+            <if test='pmCategory != null and !"".equals(pmCategory)'>
+                , pm_category = #{pmCategory}
+            </if>
+            <if test='pmEndDate != null and !"".equals(pmEndDate)'>
+                , pm_end_date = #{pmEndDate}
+            </if>
+            <if test='pmMainImage != null and !"".equals(pmMainImage)'>
+                , pm_main_image = #{pmMainImage}
+            </if>
+            <if test='pmName != null and !"".equals(pmName)'>
+                , pm_name = #{pmName}
+            </if>
+            <if test='pmRatePlan != null and !"".equals(pmRatePlan)'>
+                , pm_rate_plan = #{pmRatePlan}
+            </if>
+            <if test='pmRefundPossibleYn != null and !"".equals(pmRefundPossibleYn)'>
+                , pm_refund_possible_yn = #{pmRefundPossibleYn}
+            </if>
+            <if test='pmReservationPossibleYn != null and !"".equals(pmReservationPossibleYn)'>
+                , pm_reservation_possible_yn = #{pmReservationPossibleYn}
+            </if>
+            <if test='pmStartDate != null and !"".equals(pmStartDate)'>
+                , pm_start_date = #{pmStartDate}
+            </if>
+            <if test='pmTargetAmount != null and !"".equals(pmTargetAmount)'>
+                , pm_target_amount = #{pmTargetAmount}
+            </if>
+            <if test='pmTargetCompleteYn != null and !"".equals(pmTargetCompleteYn)'>
+                , pm_target_complete_yn = #{pmTargetCompleteYn}
+            </if>
+            <if test='pmTargetDate != null and !"".equals(pmTargetDate)'>
+                , pm_target_date = #{pmStartDate}
+            </if>
+            <if test='pmTargetType != null and !"".equals(pmTargetType)'>
+                , pm_target_type = #{pmTargetType}
+            </if>
+        WHEN NOT MATCHED THEN
+        INSERT (
+            pm_approval_yn
+            , pm_category
+            , pm_end_date
+            , pm_main_image
+            , pm_name
+            , pm_rate_plan
+            , pm_refund_possible_yn
+            , pm_reservation_possible_yn
+            , pm_start_date
+            , pm_target_amount
+            , pm_target_complete_yn
+            , pm_target_date
+            , pm_target_type
+        ) VALUES (
+            #{pmApprovalYn}
+            , #{pmCategory}
+            , #{pmEndDate}
+            , #{pmMainImage}
+            , #{pmName}
+            , #{pmRatePlan}
+            , #{pmRefundPossibleYn}
+            , #{pmReservationPossibleYn}
+            , #{pmStartDate}
+            , #{pmTargetAmount}
+            , #{pmTargetCompleteYn}
+            , #{pmTargetDate}
+            , #{pmTargetType}
+        )
+    </update>
+
+    <delete id="deleteTest" parameterType="string">
+        /* TestMapper.deleteTest */
+        DELETE
+        FROM    test_project_master
+        WHERE   pm_id = #{pmId}
+    </delete>
+
+</mapper>

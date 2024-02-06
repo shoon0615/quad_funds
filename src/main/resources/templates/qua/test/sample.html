@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default-test}">
+<th:block layout:fragment="content">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Floating labels Form</h5>
+
+					<!-- Floating Labels Form -->
+					<form id="searchForm" class="search-form row g-3">
+						<div class="form-floating">
+							<input type="text" class="form-control" id="floatingName" name="floatingName" placeholder="Your Name">
+							<label for="floatingName">Your Name</label>
+						</div>
+						<div class="form-floating">
+							<input type="text" class="form-control" id="floatingCity" name="floatingCity" placeholder="City">
+							<label for="floatingCity">City</label>
+						</div>
+						<div class="form-floating">
+							<select class="form-select" id="floatingSelect" name="floatingSelect" aria-label="State">
+								<option selected="">New York</option>
+								<option value="1">Oregon</option>
+								<option value="2">DC</option>
+							</select>
+							<label for="floatingSelect">State</label>
+						</div>
+						<div class="form-floating">
+							<input type="text" class="form-control" id="floatingZip" name="floatingZip" placeholder="Zip">
+							<label for="floatingZip">Zip</label>
+						</div>
+						<div class="text-end"><!-- div class="text-end mt-0" -->
+							<button type="button" class="btn btn-primary btn-sm" id="btnSelect">조회</button>
+							<button type="button" class="btn btn-secondary btn-sm" id="btnInsert">추가</button>
+							<button type="button" class="btn btn-success btn-sm" id="btnExcel">엑셀</button>
+							<button type="button" class="btn btn-danger btn-sm" id="btnDelete">삭제</button>
+							<button type="button" id="btnModal" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalPopup">
+								<span>팝업</span>
+							</button>
+
+							<button type="submit" class="btn btn-primary btn-sm" id="btnSubmit">Submit</button>
+							<button type="reset" class="btn btn-secondary btn-sm" id="btnReset">Reset</button>
+						</div>
+					</form><!-- End floating Labels Form -->
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Datatables</h5>
+
+					<div class="row">
+						<div class="col-lg-12" id="tableMain">
+							<!-- Table with stripped rows -->
+							<table class="table table-hover datatable">
+								<thead>
+								<tr>
+									<th>
+										<b>N</b>ame
+									</th>
+									<th>Ext</th>
+									<th>City</th>
+									<th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
+									<th>Completion</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>Unity Pugh</td>
+									<td>9958</td>
+									<td>Curicó</td>
+									<td>2005/02/11</td>
+									<td>37%</td>
+								</tr>
+								<tr>
+									<td>Theodore Duran</td>
+									<td>8971</td>
+									<td>Dhanbad</td>
+									<td>1999/04/07</td>
+									<td>97%</td>
+								</tr>
+								<tr>
+									<td>한글 테스트</td>
+									<td>3147</td>
+									<td>Norman</td>
+									<td>2005/09/08</td>
+									<td>63%</td>
+								</tr>
+								<tr>
+									<td>Willow Gilliam</td>
+									<td>3497</td>
+									<td>Amqui</td>
+									<td>2009/29/11</td>
+									<td>30%</td>
+								</tr>
+								<tr>
+									<td>Blossom Dickerson</td>
+									<td>5018</td>
+									<td>Kempten</td>
+									<td>2006/11/09</td>
+									<td>17%</td>
+								</tr>
+								<tr>
+									<td>Elliott Snyder</td>
+									<td>3925</td>
+									<td>Enines</td>
+									<td>2006/03/08</td>
+									<td>57%</td>
+								</tr>
+								<tr>
+									<td>Castor Pugh</td>
+									<td>9488</td>
+									<td>Neath</td>
+									<td>2014/23/12</td>
+									<td>93%</td>
+								</tr>
+								<tr>
+									<td>Pearl Carlson</td>
+									<td>6231</td>
+									<td>Cobourg</td>
+									<td>2014/31/08</td>
+									<td>100%</td>
+								</tr>
+								<tr>
+									<td>Deirdre Bridges</td>
+									<td>1579</td>
+									<td>Eberswalde-Finow</td>
+									<td>2014/26/08</td>
+									<td>44%</td>
+								</tr>
+								<tr>
+									<td>Daniel Baldwin</td>
+									<td>6095</td>
+									<td>Moircy</td>
+									<td>2000/11/01</td>
+									<td>33%</td>
+								</tr>
+								<tr>
+									<td>Phelan Kane</td>
+									<td>9519</td>
+									<td>Germersheim</td>
+									<td>1999/16/04</td>
+									<td>77%</td>
+								</tr>
+								<tr>
+									<td>Quentin Salas</td>
+									<td>1339</td>
+									<td>Los Andes</td>
+									<td>2011/26/01</td>
+									<td>49%</td>
+								</tr>
+								<tr>
+									<td>Armand Suarez</td>
+									<td>6583</td>
+									<td>Funtua</td>
+									<td>1999/06/11</td>
+									<td>9%</td>
+								</tr>
+								<tr>
+									<td>Gretchen Rogers</td>
+									<td>5393</td>
+									<td>Moxhe</td>
+									<td>1998/26/10</td>
+									<td>24%</td>
+								</tr>
+								<tr>
+									<td>Harding Thompson</td>
+									<td>2824</td>
+									<td>Abeokuta</td>
+									<td>2008/06/08</td>
+									<td>10%</td>
+								</tr>
+								<tr>
+									<td>Mira Rocha</td>
+									<td>4393</td>
+									<td>Port Harcourt</td>
+									<td>2002/04/10</td>
+									<td>14%</td>
+								</tr>
+								<tr>
+									<td>Drew Phillips</td>
+									<td>2931</td>
+									<td>Goes</td>
+									<td>2011/18/10</td>
+									<td>58%</td>
+								</tr>
+								<tr>
+									<td>Emerald Warner</td>
+									<td>6205</td>
+									<td>Chiavari</td>
+									<td>2002/08/04</td>
+									<td>58%</td>
+								</tr>
+								<tr>
+									<td>Colin Burch</td>
+									<td>7457</td>
+									<td>Anamur</td>
+									<td>2004/02/01</td>
+									<td>34%</td>
+								</tr>
+								<tr>
+									<td>Russell Haynes</td>
+									<td>8916</td>
+									<td>Frascati</td>
+									<td>2015/28/04</td>
+									<td>18%</td>
+								</tr>
+								<tr>
+									<td>Brennan Brooks</td>
+									<td>9011</td>
+									<td>Olmué</td>
+									<td>2000/18/04</td>
+									<td>2%</td>
+								</tr>
+								<tr>
+									<td>Kane Anthony</td>
+									<td>8075</td>
+									<td>LaSalle</td>
+									<td>2006/21/05</td>
+									<td>93%</td>
+								</tr>
+								<tr>
+									<td>Scarlett Hurst</td>
+									<td>1019</td>
+									<td>Brampton</td>
+									<td>2015/07/01</td>
+									<td>94%</td>
+								</tr>
+								</tbody>
+							</table><!-- End Table with stripped rows -->
+						</div>
+
+						<div class="table-detail col-lg-4" id="tableDetail">
+							<form class="row pt-4 needs-validation" novalidate>
+								<div class="col-md-12">
+									<div class="form-floating">
+										<input type="text" class="form-control" id="floatingName" required>
+										<label for="floatingName">Your Name</label>
+										<div class="valid-feedback">
+											Looks good!
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating">
+										<input type="email" class="form-control" id="floatingEmail" required>
+										<label for="floatingEmail">Your Email</label>
+										<div class="valid-feedback">
+											Looks good!
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating">
+										<input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+										<label for="floatingPassword">Password</label>
+										<div class="invalid-feedback">
+											Looks good!
+										</div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-floating">
+										<textarea class="form-control" id="floatingTextarea" placeholder="Address" style="height: 100px;" required></textarea>
+										<label for="floatingTextarea">Address</label>
+										<div class="invalid-feedback">
+											Looks good!
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="col-md-12">
+										<div class="form-floating has-validation">
+											<input type="text" class="form-control" id="floatingCity2" placeholder="City" aria-describedby="floatingCity2" required>
+											<label for="floatingCity2">City</label>
+											<div class="valid-feedback">Success</div>
+											<div class="invalid-feedback"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-floating mb-3">
+										<select class="form-select" id="floatingSelect2" placeholder="State" aria-label="State">
+											<option selected="">New York</option>
+											<option value="1">Oregon</option>
+											<option value="2">DC</option>
+										</select>
+										<label for="floatingSelect2">State</label>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-floating">
+										<input type="text" class="form-control" id="floatingZip2" placeholder="Zip">
+										<label for="floatingZip2">Zip</label>
+									</div>
+								</div>
+								<div class="text-center pb-4">
+									<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+									<button type="reset" class="btn btn-secondary btn-sm">Reset</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</th:block>
+
+<th:block layout:fragment="css">
+	<link th:href="@{/assets/css/sample.css}" rel="stylesheet">
+
+	<style>
+		.pagetitle h1 {
+			font-size: 20px;
+		}
+	</style>
+</th:block>
+
+<th:block layout:fragment="script">
+	<!-- Template Index JS File -->
+	<!--<script th:src="@{/assets/js/index.js}"></script>-->
+	<script defer src="/assets/js/index.js"></script>
+
+	<!-- defer 속성은 외부 스크립트에만 유효 -> src 가 없으면 defer 속성은 무시 -->
+	<!--<script defer src="/assets/js/sample.js"></script>-->
+	<script th:inline="javascript" type="text/javascript">
+		// 화면 최초 접속 시 동작될 작업
+		document.addEventListener('DOMContentLoaded', () => {
+
+			document.querySelector('#tableDetail').classList.add('d-none')
+
+			/* searchForm 예제 Start */
+			btnSelect.onclick = (e) => {
+				const formData = serializeObject(searchForm)
+				console.log("formData", formData)
+				console.table(formData)
+				console.log("jsonData", JSON.stringify(formData, null, 2))
+			}
+			/* searchForm 예제 End */
+
+			/* table 예제 Start -> 공통으로 처리 예정 */
+			document.querySelector('#tableMain tbody').addEventListener('click', () => {
+				showTableDetail()
+			})
+
+			document.querySelector('#searchForm').addEventListener('click', () => {
+				hideTableDetail()
+			})
+
+			const buttons = document.querySelectorAll('#tableMain tbody tr')
+			for (const button of buttons) {
+				button.onclick = (e) => {
+					buttons.forEach((ele, idx) => {
+						ele.classList.remove('table-active')
+					})
+
+					let $tr = e.currentTarget
+					let $td = $tr.childNodes
+
+					$tr.classList.add('table-active')
+					$td.forEach((ele, idx) => {
+						let $detail = document.querySelectorAll('#tableDetail [id]')
+						$detail[idx].value = ele.innerText
+
+						let label = $detail[idx].parentNode.querySelector("label").innerText
+						let $valid = $detail[idx].parentNode.querySelector(".invalid-feedback")
+						if($valid) {
+							$valid.innerText = `Please provide a valid ${label}`
+						}
+					})
+				}
+			}
+			/* table 예제 End */
+
+			/* modal 예제 Start */
+		    // document.querySelector('#btnModal').addEventListener('click', () => {
+		    btnModal.addEventListener('click', (e) => {
+		        // this 가 window 로만 먹어서 e 로 처리 -> 추후 확인
+		        // e.target = 클릭한 위치(span) / e.currentTarget = 이벤트 위치(button)
+		        const modalId = e.currentTarget.dataset.bsTarget
+		        console.log(modalId)
+		        console.log(document.querySelector(modalId))
+
+				// var modal = bootstrap.Modal.getOrCreateInstance(document.querySelector('#modalPopup'))
+		        var modal = bootstrap.Modal.getOrCreateInstance(modalPopup)
+				// modal.show()
+				// modal.hide()
+			})
+			/* modal 예제 End */
+
+		})
+
+		// JS 파일로 제외한 뒤 defer 속성 사용 시 DOMContentLoaded 에 안넣고 바로 사용 가능
+		/*btnModal.addEventListener('click', (e) => {
+	        // 이벤트 내용
+		})*/
+
+		showTableDetail = () => {
+			tableDetail.classList.remove('d-none')
+			tableMain.classList.replace('col-lg-12', 'col-lg-8')
+
+			document.querySelector('#tableDetail form').classList.remove('was-validated')
+		}
+
+		hideTableDetail = () => {
+			tableDetail.classList.add('d-none')
+			tableMain.classList.replace('col-lg-8', 'col-lg-12')
+		}
+
+		toggleTableDetail = () => {
+			if(!tableDetail.classList.contains('d-none')) {
+				hideTableDetail()
+				return
+			}
+			showTableDetail()
+		}
+
+		serializeObject = (form) => {
+			const formData = new FormData(form);
+			let serializedData = {};
+
+			for (var [name, value] of formData) {
+				if (serializedData[name]) {
+					if (!Array.isArray(serializedData[name])) {
+						serializedData[name] = [serializedData[name]];
+					}
+					serializedData[name].push(value);
+				} else {
+					serializedData[name] = value;
+				}
+			}
+
+			return serializedData;
+		}
+	</script>
+</th:block>
+
+</html>

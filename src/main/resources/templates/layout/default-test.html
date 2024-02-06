@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:with="
+        staticDomain=${@environment.getProperty('resource.test')},
+        pageSize=${@environment.getProperty('resource.page')}">
+
+	<!--공통 JS / CSS 영역을 관리하는 환경 영역-->
+    <head th:replace="~{fragment/config :: configFragment}">
+		<title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">공통 타이틀</title>
+	</head>
+
+	<body>
+		<!--Header 영역을 참조합니다.-->
+		<header th:replace="~{fragment/header :: headerFragment}"></header>
+
+		<!--Sidebar 영역을 참조합니다.-->
+		<aside th:replace="~{fragment/side :: sideFragment}"></aside>
+
+		<!--Content 내용 영역을 참조합니다-->
+		<main class="main" id="main">
+			<div class="pagetitle">
+				<h1>Menu</h1>
+				<nav>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a href="/qua/test/sample/index">
+								<i class="bi bi-house-door me-1"></i>
+								Home
+							</a>
+						</li>
+						<li class="breadcrumb-item">Category</li>
+						<li class="breadcrumb-item active">Menu</li>
+					</ol>
+				</nav>
+			</div><!-- End Page Title -->
+
+			<section class="section">
+				<th:block layout:fragment="content"></th:block>
+			</section>
+		</main>
+
+		<!--Modal 내용 영역을 참조합니다-->
+		<div th:replace="~{fragment/modal :: modalFragment}"></div>
+
+		<!--Footer 영역을 참조합니다.-->
+		<footer th:replace="~{fragment/footer :: footerFragment}"></footer>
+
+		<!-- 맨 위로 버튼 -->
+		<!-- <a href="javascript:;" 적용 시 기능이 안먹힘.. -->
+		<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+				class="bi bi-arrow-up-short"></i></a>
+
+		<!-- Template Main JS File -->
+		<!--<script th:src="@{/assets/js/main.js}"></script>-->
+		<script src="/assets/js/main.js"></script>
+	</body>
+</html>

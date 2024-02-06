@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default-test}">
+<th:block layout:fragment="content">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Floating labels Form</h5>
+
+					<!-- Floating Labels Form -->
+					<form id="searchForm" class="search-form row g-3">
+						<div class="form-floating">
+							<input type="text" class="form-control" id="floatingName" name="floatingName" placeholder="Your Name">
+							<label for="floatingName">Your Name</label>
+						</div>
+						<div class="form-floating">
+							<input type="text" class="form-control" id="floatingCity" name="floatingCity" placeholder="City">
+							<label for="floatingCity">City</label>
+						</div>
+						<div class="form-floating">
+							<select class="form-select" id="floatingSelect" name="floatingSelect" aria-label="State">
+								<option selected="">New York</option>
+								<option value="1">Oregon</option>
+								<option value="2">DC</option>
+							</select>
+							<label for="floatingSelect">State</label>
+						</div>
+						<div class="form-floating">
+							<input type="text" class="form-control" id="floatingZip" name="floatingZip" placeholder="Zip">
+							<label for="floatingZip">Zip</label>
+						</div>
+						<div class="text-end"><!-- div class="text-end mt-0" -->
+							<button type="button" class="btn btn-primary btn-sm" id="btnSelect">조회</button>
+							<button type="button" class="btn btn-secondary btn-sm" id="btnInsert">추가</button>
+							<button type="button" class="btn btn-success btn-sm" id="btnExcel">엑셀</button>
+							<button type="button" class="btn btn-danger btn-sm" id="btnDelete">삭제</button>
+							<button type="button" id="btnModal" class="btn btn-warning btn-sm d-none" data-bs-toggle="modal" data-bs-target="#modalPopup">
+								<span>팝업</span>
+							</button>
+						</div>
+					</form><!-- End floating Labels Form -->
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Datatables</h5>
+
+					<div class="row">
+						<div class="col-lg-12" id="tableMain">
+							<!-- Table with stripped rows -->
+							<table class="table table-hover datatable"></table><!-- End Table with stripped rows -->
+						</div>
+
+						<div class="table-detail col-lg-4" id="tableDetail">
+							<form class="row pt-4 needs-validation" novalidate>
+								<div class="col-md-12">
+									<div class="form-floating">
+										<input type="text" class="form-control" id="floatingName2" placeholder="Your Name" aria-describedby="floatingName2" required>
+										<label for="floatingName2">Your Name</label>
+										<div class="invalid-feedback"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating">
+										<input type="email" class="form-control" id="floatingEmail2" placeholder="Your Email" aria-describedby="floatingEmail2" required>
+										<label for="floatingEmail2">Your Email</label>
+										<div class="invalid-feedback"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating">
+										<input type="password" class="form-control" id="floatingPassword2" placeholder="Password" aria-describedby="floatingPassword2" required>
+										<label for="floatingPassword2">Password</label>
+										<div class="invalid-feedback"></div>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-floating">
+										<textarea class="form-control" id="floatingTextarea2" style="height: 100px;" placeholder="Address" aria-describedby="floatingTextarea2" required></textarea>
+										<label for="floatingTextarea2">Address</label>
+										<div class="invalid-feedback"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="col-md-12">
+										<div class="form-floating has-validation">
+											<input type="text" class="form-control" id="floatingCity2" placeholder="City" aria-describedby="floatingCity2" required>
+											<label for="floatingCity2">City</label>
+											<div class="invalid-feedback"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating mb-3">
+										<select class="form-select" id="floatingSelect2" placeholder="State" aria-describedby="floatingCity2" aria-label="State" required>
+											<option value="" selected>New York</option>
+											<option value="1">Oregon</option>
+											<option value="2">DC</option>
+										</select>
+										<label for="floatingSelect2">State</label>
+										<div class="invalid-feedback"></div>
+									</div>
+								</div>
+								<div class="text-center pb-4">
+									<button type="submit" class="btn btn-primary btn-sm">Submit</button>
+									<button type="reset" class="btn btn-secondary btn-sm">Reset</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</th:block>
+
+<th:block layout:fragment="css">
+	<link th:href="@{/assets/css/sample.css}" rel="stylesheet">
+</th:block>
+
+<th:block layout:fragment="script">
+	<script defer src="/assets/js/index.js"></script>
+	<script defer src="/assets/js/sample.js"></script>
+</th:block>
+
+</html>

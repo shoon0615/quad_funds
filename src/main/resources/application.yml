@@ -1,0 +1,64 @@
+server:
+  port: 8090
+
+spring:
+  freemarker:
+    cache: false
+  profiles:
+    active: local                       # local(로컬), dev(개발기), prod(운영기)
+  config:
+    import:
+      - optional:classpath:custom.yml   # optional: 파일이 존재하지 않아도 에러 미발생
+  devtools:
+    livereload:
+      enable: true
+      enabled: true
+    remote:
+      restart:
+        enabled: true
+  # 생략 가능
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    prefix: classpath:/templates/
+    suffix: .html
+    enabled: true
+
+---
+# JPA
+spring:
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      format_sql: true
+      # none        : 아무 일도 안 일어남 (초기값)
+      # create      : 애플리케이션이 실행될 때만 drop 하고 다시 create 함
+      # update      : 변경된 스키마만 적용
+      # validate    : 변경된 스키마가 있는지 확인만 함, 변경이 있을 시 애플리케이션 종료
+      # create-drop : create 와 비슷하지만 애플리케이션 종료 시에 drop 함
+      ddl-auto: update
+    generate-ddl: true
+
+---
+# H2 DataBase -> localhost:8090/h2-console 접속
+spring:
+  console:
+    enabled: true
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/test
+    username: sa
+    password:
+
+---
+# MyBatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml      # mapper.xml 위치 지정
+  configuration:
+    map-underscore-to-camel-case: true          # mapper 의 밑줄(_) 자동으로 카멜케이스로 치환(snake_case -> camelCase)
+    #jdbc-type-for-null: NULL
+  type-aliases-package: #com.side_project.quad_funds_bo_all.entity    # alias 약어 설정

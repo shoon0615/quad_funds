@@ -1,0 +1,100 @@
+:root, [data-bs-theme=light] {
+    --bs-body-font-size: 0.85rem;
+}
+
+.pagetitle nav {
+    --bs-breadcrumb-divider: '>';
+}
+
+.pagetitle h1 {
+    font-size: 20px;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.search-form>.form-floating {
+    position: relative;
+    flex: 0 0 auto;
+    width: 16.66666667%;
+    /* margin-top: 0; */
+    padding-left: 0;
+    margin-left: 8px;
+}
+
+.form-floating>.form-control,
+.form-floating>.form-control-plaintext,
+.form-floating>.form-select {
+    height: calc(2.5rem + calc(var(--bs-border-width) * 2));
+    min-height: calc(2.5rem + calc(var(--bs-border-width) * 2));
+    line-height: 1.25;
+}
+
+.form-floating>.form-select {
+    padding-top: 1rem;
+    padding-bottom: 0.125rem;
+    font-size: 0.8rem;
+}
+
+.form-floating>label {
+    height: 75%;
+    padding: 0.6rem 0.75rem;
+}
+
+.table-detail .form-floating>.form-control,
+.table-detail .form-floating>.form-control-plaintext,
+.table-detail .form-floating>.form-select {
+    height: calc(2.8rem + calc(var(--bs-border-width) * 2));
+    min-height: calc(2.8rem + calc(var(--bs-border-width) * 2));
+    line-height: 1.25;
+}
+
+.table-detail .form-floating>label {
+    height: 75%;
+    padding: 0.8rem 0.75rem;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    --bs-btn-font-size: 0.8rem;
+    width: 70px;
+}
+
+.datatable-top {
+    display: none;
+}
+
+.datatable-table > thead > tr > th {
+    /* border-top-width: var(--bs-border-width); */
+}
+
+.table>thead>*>* {
+    border-top-width: var(--bs-border-width);
+}
+
+.table>:not(caption)>*>* {
+    border-left-width: var(--bs-border-width);
+}
+
+.table>:not(caption)>*>*:last-child {
+    border-right-width: var(--bs-border-width);
+}
+
+.table-active, .table-hover>tbody>tr:hover>* {
+    --bs-table-bg-state: #dcebff;
+}
+
+.datatable-active button, .datatable-pagination button:hover {
+    background-color: #dcebff !important;
+}
+
+.table-detail>form {
+    border: 1px solid #d9d9d9;
+    /* min-height: calc(100% - 1rem); */
+    height: 27rem;
+    overflow: auto;
+}
+
+.table-detail>form>* {
+    --bs-gutter-y: 1rem;
+}
